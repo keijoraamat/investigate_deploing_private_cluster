@@ -22,10 +22,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
-    - name: Get pods
-      uses: phamquyhai/kubernetes-action@master
+    - uses: actions/checkout@master
+    - name: deploy to cluster
+      uses: wahyd4/kubectl-helm-action@master
       env:
-        kube_confg_data: ${{ secrets.KUBE_CONFIG }}
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
-        args: get pods --namespace test-auction
+        args: kubectl get pods --namespace test-auction
