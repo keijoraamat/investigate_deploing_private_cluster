@@ -27,5 +27,5 @@ jobs:
         env:
           SSH_KEY: ${{secrets.KUBE_CONFIG}}
       
-      - run: ls -la
+      - run: cat key
         shell: bash
