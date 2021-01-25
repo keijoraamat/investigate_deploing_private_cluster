@@ -22,9 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@master
-    - name: deploy to cluster
-      uses: qazz92/kubectl@1.0.0
+    - uses: actions/checkout@v2
+    - name: Get pods
+      uses: phamquyhai/kubernetes-action@master
       env:
         kube_confg_data: ${{ secrets.KUBE_CONFIG }}
       with:
