@@ -24,8 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: deploy to cluster
-        uses: wahyd4/kubectl-helm-action@master
+        uses: steebchen/kubectl@master
         env:
-          KUBE_CONGIG_DATA: ${{ secrets.KUBE_CONFIG }}
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
         with:
           args: kubectl get pods --namespace test-auction
