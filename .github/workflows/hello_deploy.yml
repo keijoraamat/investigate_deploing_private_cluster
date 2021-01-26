@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@master
-    - uses: keijoraamat/kubectl_action@0.1.0
+    - uses: keijoraamat/kubectl_action@main
       id: kubectl_command
       env:
         KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
