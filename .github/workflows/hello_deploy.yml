@@ -15,17 +15,26 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  prepare_variables:
+    runs-on: ubuntu
+    steps:
+      - name: Set ENV for codeclimate
+        run: |
+          echo "GIT_BRANCH=$GITHUB_REF" >> $GITHUB_ENV
+          echo "GIT_COMMIT_SHA=$GITHUB_SHA" >> $GITHUB_ENV
+      - name: Print ENV for codeclimate
+        run: |
+          echo $(cat GITHUB_ENV)
+  #build:
     # The type of runner that the job will run on
-    runs-on: self-hosted
+    #runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    - uses: actions/checkout@master
-    - uses: keijoraamat/kubectl_action@main
-      id: kubectl_command
-      env:
-        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-      with:
-        args: kubectl get pods --namespace test-auction
+    #steps:
+    #- uses: actions/checkout@master
+    #- uses: keijoraamat/kubectl_action@main
+      #id: kubectl_command
+      #env:
+        #KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+      #with:
+        #args: kubectl get pods --namespace test-auction
