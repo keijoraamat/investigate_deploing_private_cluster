@@ -25,6 +25,7 @@ jobs:
       - name: Print ENV for codeclimate
         run: |
           echo $(cat GITHUB_ENV)
+          printenv
   #build:
     # The type of runner that the job will run on
     #runs-on: self-hosted
