@@ -25,11 +25,11 @@ jobs:
           echo "*******************"
           echo "Adding GIT_BRANCH to GITHUB_ENV"
           echo "GIT_BRANCH=$GITHUB_REF" >> $GITHUB_ENV
-          printenv | grep GITHUB*
+          printenv | grep GITHUB_E*
           echo "*******************"
           echo "Adding GIT_COMMIT_SHA to GITHUB_ENV"
           echo "GIT_COMMIT_SHA=$GITHUB_SHA" >> $GITHUB_ENV
-          printenv | grep GITHUB*
+          printenv | grep GITHUB_E*
       - name: Print ENV for codeclimate
         run: |
           echo $(cat GITHUB_ENV)
