@@ -16,11 +16,15 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   prepare_variables:
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
+    env:
+      K_CONFIG: ${{ secrets.KUBE_CONFIG }}
     steps:
       - name: see if helm is available on gh actions
         run: |
-          helm version
+          echo $K_CONFIG | base64 -di > KUBECONFIG
+          export KUBECONFIG=(cat KUBECONFIG)
+          helm list -A
   #build:
     # The type of runner that the job will run on
     #runs-on: self-hosted
