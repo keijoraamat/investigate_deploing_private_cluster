@@ -18,22 +18,9 @@ jobs:
   prepare_variables:
     runs-on: ubuntu-20.04
     steps:
-      - name: Set ENV for codeclimate
+      - name: see if helm is available on gh actions
         run: |
-          echo "Default"
-          printenv | grep GITHUB*
-          echo "*******************"
-          echo "Adding GIT_BRANCH to GITHUB_ENV"
-          echo "GIT_BRANCH=$GITHUB_REF" >> $GITHUB_ENV
-          printenv | grep GITHUB_E*
-          echo "*******************"
-          echo "Adding GIT_COMMIT_SHA to GITHUB_ENV"
-          echo "GIT_COMMIT_SHA=$GITHUB_SHA" >> $GITHUB_ENV
-          printenv | grep GITHUB_E*
-      - name: Print ENV for codeclimate
-        run: |
-          echo $(cat GITHUB_ENV)
-          printenv | grep GITHUB*
+          helm --version
   #build:
     # The type of runner that the job will run on
     #runs-on: self-hosted
