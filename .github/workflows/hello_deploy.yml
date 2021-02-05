@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: see if helm is available on gh actions
         run: |
-          helm --version
+          helm version
   #build:
     # The type of runner that the job will run on
     #runs-on: self-hosted
